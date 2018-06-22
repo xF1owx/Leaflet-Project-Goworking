@@ -174,8 +174,3 @@ else {
     echo "wifilib pas coché";
 
 }
-
-
-
-
-

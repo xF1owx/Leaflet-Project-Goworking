@@ -2,7 +2,7 @@
 
 require_once('bdd.php');
 
-
+// Chargerment des espaces de coworking à proximité //
 function loadProxiCoworkSpots($longUser, $latUser){
 
     $filtrelongUserMax = ($longUser + 0.26000);
@@ -27,6 +27,7 @@ function loadProxiCoworkSpots($longUser, $latUser){
      
 }
 
+// Chargerment de tout les espaces de coworking //
 function loadAllCoworkSpots(){
     
 
@@ -40,8 +41,7 @@ function loadAllCoworkSpots(){
      
 }
 
-
-
+// Chargement de tout les wifilib //
 function loadAllWifiPoints(){
     
 
@@ -53,7 +53,7 @@ function loadAllWifiPoints(){
      
 }
 
-
+// Chargerment des wifilib  à proximité //
 function loadProxiWifiPoints($longUser, $latUser){
 
     $filtrelongUserMax = ($longUser + 0.26000);
@@ -75,6 +75,8 @@ function loadProxiWifiPoints($longUser, $latUser){
     return $filtered;
      
 }
+
+// Charger tout //
 function loadAll(){
     
 
@@ -88,7 +90,7 @@ function loadAll(){
      
 }
 
-
+// Ciblage d'une ville en particulier //
 function cityTarget($ville){
 
     global $bdd;
@@ -103,6 +105,17 @@ function cityTarget($ville){
 
 }
 
+// Chargement de tout la liste des villes pour vue.js //
+function selectAllCities(){
+
+    global $bdd;
+    $response=$bdd->prepare("SELECT `city_name` FROM `CITY_LIST`");
+    $response->execute();
+    $result=$response->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+     return $result;
+}
 
 
 
